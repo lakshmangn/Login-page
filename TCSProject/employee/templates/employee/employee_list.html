@@ -1,0 +1,54 @@
+{% extends 'employee/base.html' %}
+{% block content %}
+
+    <div class="container jumbotron">
+
+        <table class="table table-borderless">
+                <thead class="border-bottom font-weight-bold text-danger">
+                    <tr>
+                        <td>Full Name</td>
+                        <td>Emp_Code</td>
+                        <td>Mobile</td>
+                        <td>Position</td>
+                        <td> <a href="{% url 'newemployee' %}" class="btn btn-primary"><i class="fas fa-plus"> </i> Add New</a></td>
+                    </tr>
+                </thead>
+
+
+
+                <tbody class="text-dark font-weight-bold">
+                    {%for employee in employee_list %}
+                    <tr>
+                       
+
+                            <td>{{employee.fullname}}</td>
+                            <td>{{employee.emp_code}}</td>
+                            <td>{{employee.mobile}}</td>
+                            <td>{{employee.position}}</td>
+                            <td>
+                                <a href="{% url 'update' employee.id %}"><i class="far fa-edit"></i></a>
+                               <a href="{% url 'delete' employee.id %}">
+                                <button type="submit">Delete</button>   </a>
+                            
+                            </td>
+                            
+
+
+
+
+                    </tr>
+                    {%endfor %}
+
+
+
+
+
+                </tbody>
+        </table>
+
+
+    </div>
+
+
+
+    {% endblock content %}
